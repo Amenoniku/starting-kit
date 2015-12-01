@@ -1,0 +1,22 @@
+{
+	"port": 8000,
+	"mongoose": {
+		"uri": "mongodb://localhost:27017/volwebCMS",
+		"options": {
+			"server": {
+				"socketOptions": {
+					"keepAlive": 1
+				}
+			}
+		}
+	},
+	"session": {
+		"secret": "5our49hgrw1",
+		"key": "sid",
+		"cookie": {
+			"path": "/",
+			"httpOnly": true,
+			"maxAge": null
+		}
+	}
+}
