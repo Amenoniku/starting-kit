@@ -5,12 +5,12 @@
 
 ##### Установка `NodeJS`
 
-- Перейти по[`ссылке`](https://nodejs.org/), скачать последнюю версию и установить
+- Перейти по [ссылке](https://nodejs.org/), скачать последнюю версию и установить
 
 ##### Установка `MongoDB`
 
-- Перейти по[`ссылке`](https://www.mongodb.org/downloads#production)и скачать под нужную ОС
-- Установить mongo по[`инструкции(для Windows)`](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/#install-mongodb)
+- Перейти по [ссылке](https://www.mongodb.org/downloads#production) и скачать под нужную ОС
+- Установить mongo и запустить по [инструкции(для Windows)](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/#install-mongodb)
 
 ##### Установка `GulpJS` глобально:
 ```
@@ -28,7 +28,7 @@ npm i -g gulp
 ```
  gulp
 ```
-* Открыть в браузере [`http://localhost:9000/`](http://localhost:9000/).
+* Открыть в браузере [http://localhost:9000/](http://localhost:9000/).
 
 ##### Установка утилиты `nodemon` глобально для отслеживания изменений:
 ```
@@ -66,7 +66,7 @@ npm i -g gulp
 ```
 ## Структура папок и файлов
 ```
-/
+/                               # Корневая папка
 ├── content/                    # Клиентская часть 
 │   ├── images/                 # Графика
 │   │   ├── icons/              # SVG иконки для генерации векторного спрайта
