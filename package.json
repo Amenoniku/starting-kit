@@ -1,5 +1,5 @@
 {
-  "name": "volweb-template",
+  "name": "volweb-starting-kit",
   "version": "0.0.0",
   "private": true,
   "description": "",
@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "coffee ./core/bin/www.coffee",
-    "dev": "npm start | gulp --debug"
+    "dev": "npm start | gulp --debug",
+    "mon": "nodemon --ignore content/**/* --ignore gulp/**/* --ignore core/public/*"
   },
   "author": "Ame",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "async": "^1.5.0",
     "body-parser": "^1.14.1",
     "classnames": "^2.2.0",
+    "coffee-reactify": "^4.0.0",
     "coffee-script": "^1.10.0",
     "connect-mongo": "^0.8.2",
     "cookie-parser": "^1.4.0",
@@ -29,6 +31,7 @@
     "express-session": "^1.12.1",
     "file-stream-rotator": "0.0.6",
     "jade": "^1.11.0",
+    "jquery": "^2.1.4",
     "mongodb": "^2.0.49",
     "mongoose": "^4.2.8",
     "morgan": "^1.6.1",
@@ -42,7 +45,6 @@
     "autoprefixer-stylus": "^0.8.1",
     "browser-sync": "^2.9.11",
     "browserify": "^11.2.0",
-    "coffee-reactify": "^4.0.0",
     "del": "^2.1.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -60,7 +62,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.1.0",
     "gulp-svg-symbols": "^1.0.0",
+    "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.0.2",
     "gulp.spritesmith": "^6.0.0",
     "pretty-hrtime": "^1.0.1",
     "require-dir": "^0.3.0",

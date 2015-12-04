@@ -5,9 +5,13 @@ HttpError = require("../error").HttpError
 
 router.route "/"
 	.get (req, res, next) ->
-		for k, v of req.query 
-			# console.log req.query
-			StaticVar.save k, v, (err) ->
-				console.log err if err
+		if req.query != {}
+			console.log req.query
+			for k, v of req.query 
+				# console.log req.query
+				StaticVar.save k, v, (err) ->
+					console.log err if err
+			# res.send {}
+		res.send {}
 
 module.exports = router

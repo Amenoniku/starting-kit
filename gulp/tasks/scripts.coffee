@@ -1,23 +1,26 @@
 gulp = require "gulp"
+gulpif = require "gulp-if"
+gutil = require "gulp-util"
+uglify = require "gulp-uglify"
 browserify = require "browserify"
 watchify = require "watchify"
 source = require "vinyl-source-stream"
-bundleLogger = require "../util/bundleLogger"
-handleErrors = require "../util/handleErrors"
+bundleLogger = require "../utils/bundleLogger"
+handleErrors = require "../utils/handleErrors"
 paths = require "../paths"
 
 # External dependencies we do not want to rebundle while developing
 dependencies =
+	jquery: "./node_modules/jquery"
 	react: "./node_modules/react"
 	reactDOM: "./node_modules/react-dom"
-	classnames: "./node_modules/classnames"
 
 gulp.task "scripts", ->
 	#==========  Client bundler  ==========#
 
 	clientBundler = browserify
 		cache: {}, packageCache: {}
-		entries: "./content/scripts/main.coffee"
+		entries: "./content/scripts/app.coffee"
 		extensions: [".cjsx", ".coffee"]
 
 	for k, v of dependencies
@@ -28,7 +31,8 @@ gulp.task "scripts", ->
 
 		clientBundler.bundle()
 			.on "error", handleErrors
-			.pipe source "client.js"
+			.pipe source "app.min.js"
+			# .pipe gulpif !gutil.env.debug, do uglify
 			.pipe gulp.dest paths.scripts
 			.on "end", ->
 				bundleLogger.end "client.js"
@@ -40,18 +44,19 @@ gulp.task "scripts", ->
 
 	#==========  Vendor bundler  ==========#
 
-	# vendorBundler = browserify
-	# 	cache: {}, packageCache: {}
-	# 	extensions: [".coffee"]
+	vendorBundler = browserify
+		cache: {}, packageCache: {}
+		extensions: [".coffee"]
 
-	# for k, v of dependencies
-	# 	vendorBundler.require v, expose: k
+	for k, v of dependencies
+		vendorBundler.require v, expose: k
 
-	# bundleLogger.start "vendor.js"
+	bundleLogger.start "vendor.js"
 
-	# vendorBundler.bundle()
-	# 	.on "error", handleErrors
-	# 	.pipe source "vendor.js"
-	# 	.pipe gulp.dest paths.scripts
-	# 	.on "end", ->
-	# 		bundleLogger.end "vendor.js"
+	vendorBundler.bundle()
+		.on "error", handleErrors
+		.pipe source "vendor.js"
+		# .pipe gulpif !gutil.env.debug, do uglify
+		.pipe gulp.dest paths.scripts
+		.on "end", ->
+			bundleLogger.end "vendor.js"

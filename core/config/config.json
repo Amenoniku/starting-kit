@@ -1,7 +1,7 @@
 {
 	"port": 8000,
 	"mongoose": {
-		"uri": "mongodb://localhost:27017/volwebCMS",
+		"uri": "mongodb://localhost:27017/volweb-starting-kit",
 		"options": {
 			"server": {
 				"socketOptions": {

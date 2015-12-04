@@ -34,4 +34,5 @@ head
 	meta(name='keywords' content=pageKeywords || '')
 
 	link(href='https://fonts.googleapis.com/css?family=Cuprum:400,700&subset=latin,cyrillic' rel='stylesheet')
+	- var timestamp= +new Date();
 	link(href='/assets/styles/app.min.css?t=' + timestamp rel='stylesheet')

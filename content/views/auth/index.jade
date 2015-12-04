@@ -1,0 +1,8 @@
+extends ../layout/index
+
+block content
+	.auth
+		h4 Авторизация
+		form(id="formAuth" class="auth__form" action='./auth', method='POST', name='auth-form')
+			input(type="text", placeholder="Логин")
+			input(type="password", placeholder="Пароль")

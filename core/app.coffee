@@ -12,7 +12,7 @@ config       =                require "./config"
 mongoose     =         require "./libs/mongoose"
 HttpError    =      require("./error").HttpError
 routes       =          require "./routes/index"
-users        =          require "./routes/users"
+auth         =           require "./routes/auth"
 addStaicVars =    require "./routes/addStaicVar"
 
 mongooseStore = new MongoStore mongooseConnection: mongoose.connection
@@ -34,6 +34,7 @@ app.use do bodyParser.json
 app.use bodyParser.urlencoded extended: on
 app.use do cookieParser
 
+### Sessions ###
 sessionStore = require "./libs/sessionSrote"
 app.use session
 	secret: config.get "session:secret"
@@ -49,10 +50,12 @@ app.use express.static path.join __dirname, "public"
 app.use require "./middleware/loadUser"
 app.use require "./middleware/staticvars"
 
+### Routes uses ###
 app.use "/", routes
 app.use "/addstaticvar", addStaicVars
-app.use "/users", users
+app.use "/auth", auth
 
+### 404 ###
 app.use (req, res, next) ->
 	error = 
 		message: "Страница не найдена."

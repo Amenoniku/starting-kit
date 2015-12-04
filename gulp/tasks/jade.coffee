@@ -9,7 +9,6 @@ paths = require "../paths"
 inheritance = require "gulp-jade-inheritance"
 
 data = 
-	jv0: "javascript:void(0);"
 	timestamp: +new Date
 
 gulp.task "jade", ->
@@ -17,7 +16,7 @@ gulp.task "jade", ->
 		.pipe do plumber
 		.pipe cached "jade"
 		.pipe gulpif global.watch, inheritance basedir: "content"
-		.pipe do jade
+		.pipe jade data: data
 		.pipe prettify
 			brace_style: "expand"
 			indent_size: 1

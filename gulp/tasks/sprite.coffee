@@ -18,8 +18,6 @@ gulp.task "sprite", ->
 				format: "png"
 
 	spriteData.img
-	# 	# .pipe imagemin optimizationLevel: 3
 		.pipe gulp.dest paths.images
-		# console.log spriteData.img
 	spriteData.css
 		.pipe gulp.dest paths.appStylesHelpers

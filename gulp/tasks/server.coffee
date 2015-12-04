@@ -4,7 +4,7 @@ browserSync = require("browser-sync").create()
 
 gulp.task "server", ->
 	browserSync.init
-		files: ["core/public/**/*", "content/**/*"]
+		files: ["core/**/*", "content/**/*"]
 		open: !!gutil.env.open
 		reloadOnRestart: true
 		port: gutil.env.port or 9000
