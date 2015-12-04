@@ -3,11 +3,16 @@
 
 ## Старт проекта
 
-##### Установка `nodejs`
+##### Установка `NodeJS`
 
 Перейти по[`ссылке`](https://nodejs.org/)и скачать последнюю версию
 
-##### Установка `gulp` глобально:
+##### Установка `MongoDB`
+
+- Перейти по[`ссылке`](https://www.mongodb.org/downloads#production)и скачать под нужную ОС
+- Установить mongo по[`инструкции(для Windows)`](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/#install-mongodb)
+
+##### Установка `GulpJS` глобально:
 ```
 npm i -g gulp
 ```
@@ -19,7 +24,7 @@ npm i -g gulp
 ```
  npm start
 ```
-##### Запуск Gulp.js:
+##### Запуск `Gulp.js`:
 ```
  gulp
 ```
