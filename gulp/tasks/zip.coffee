@@ -16,11 +16,11 @@ getDateTime = ->
 	hours = correctNumber now.getHours()
 	minutes = correctNumber now.getMinutes()
 
-	return "#{year}-#{month}-#{day}-#{hours}:#{minutes}"
+	return "#{hours}#{minutes}#{day}#{month}#{year}"
 
 gulp.task "zip", ->
-	datetime = do getDateTime
-	zipName = "#{pkg.name}.zip"
+	zipName = "#{pkg.name}_#{do getDateTime}.zip"
+	console.log zipName
 	gulp.src ["./**/*", "!./node_modules/**", "!./*.zip"]
 		.pipe zip zipName
 		.pipe gulp.dest "./"
