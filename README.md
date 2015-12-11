@@ -1,4 +1,4 @@
-# VolWeb Starting Kit
+# Starting Kit
 **Мой набор для старта проектов.**
 
 ## Старт проекта
