@@ -1,1 +1,0 @@
-r = react = require "react"

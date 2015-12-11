@@ -15,9 +15,10 @@ gulp.task "watch", ->
 	gulp.watch "content/views/**/*.jade", reload
 		# runSequence "jade",
 
-	gulp.watch "core/**/*", reload
+	# gulp.watch "core/**/*", reload
 
 	gulp.watch "content/resources/**/*", ["copy:resources", reload]
+	gulp.watch "content/images/**/*", ["copy:images", reload]
 
 	gulp.watch "content/**/*.{coffee,cjsx}", reload
 

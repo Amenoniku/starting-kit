@@ -1,5 +1,5 @@
-crypto = require "crypto"
-mongoose = require "../libs/mongoose"
+crypto = require("crypto")
+mongoose = require("../libs/mongoose")
 async = require "async"
 path = require "path"
 util = require "util"
@@ -29,15 +29,15 @@ schema.add right: String
 
 schema.virtual("password").set((password) ->
 	@_plainPassword = password
-	@salt = do Math.random + ""
+	@salt = Math.random() + ""
 	@right = "newbie"
-	@hashedPassword = @encryptPassword password
+	@hashedPassword = @encryptPassword(password)
 	return
 ).get ->
 	@_plainPassword
 
 schema.methods.checkPassword = (password) ->
-	@encryptPassword password == @hashedPassword
+	@encryptPassword(password) == @hashedPassword
 
 schema.statics.authorize = (username, password, callback) ->
 	User = @

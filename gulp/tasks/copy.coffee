@@ -4,7 +4,7 @@ gutil = require "gulp-util"
 paths = require "../paths"
 
 gulp.task "copy:images", ->
-	gulp.src ["**/*.{png,jpg,gif}", "!sprite/**/*"], cwd: paths.appImages
+	gulp.src ["**/*.{png,jpg,gif}", "!sprite/**/*", "!icons/**/*"], cwd: paths.appImages
 		.pipe gulp.dest paths.images
 
 gulp.task "copy:resources", ->

@@ -1,5 +1,8 @@
 extends ../layout/index
 
+include description/description
+include structure/structure
+
 block content
-	h1= title
-	p Welcome to #{title}
+	+description()
+	+structure()

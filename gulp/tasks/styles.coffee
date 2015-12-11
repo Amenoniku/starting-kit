@@ -18,7 +18,6 @@ gulp.task "styles", ->
 		.pipe stylus
 			errors: true
 			use: [
-				do rupture
 				autoprefixer(
 					"Android >= " + browsers.android
 					"Chrome >= " + browsers.chrome

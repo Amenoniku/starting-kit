@@ -4,7 +4,7 @@
 ###
 
 app = require "../app"
-debug = require("debug")("Mitoushi:server")
+debug = require("debug")("VWSK:server")
 http = require "http"
 config = require "../config"
 

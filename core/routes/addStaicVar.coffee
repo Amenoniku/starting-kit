@@ -1,17 +1,16 @@
-express = require("express")
-router = express.Router()
+express = require "express"
+router = do express.Router
 StaticVar = require("../modelsDB/staticVar").StaticVar
+checkRight = require "../middleware/checkright"
 HttpError = require("../error").HttpError
 
 router.route "/"
-	.get (req, res, next) ->
+	.get checkRight, (req, res, next) ->
 		if req.query != {}
 			console.log req.query
-			for k, v of req.query 
-				# console.log req.query
+			for k, v of req.query
 				StaticVar.save k, v, (err) ->
-					console.log err if err
-			# res.send {}
-		res.send {}
+					return next err if err
+		res.redirect "/"
 
 module.exports = router

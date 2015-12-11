@@ -11,7 +11,7 @@ gulp.task "icons", ->
 			id: "icon_%f"
 			className: "%f"
 			templates: [
-				path.join __dirname, "../util/svg.styl"
+				path.join __dirname, "../utils/svg.styl"
 				"default-svg"
 			]
 

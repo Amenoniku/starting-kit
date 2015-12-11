@@ -5,7 +5,7 @@ HttpError = require("../error").HttpError
 module.exports = (req, res, next) ->
 	if req.session.user
 		User.findById req.session.user, (err, user) ->
-			next err if err
+			return next err if err
 			switch user.right
 				when "SuperAdmin"
 					do next
@@ -15,6 +15,5 @@ module.exports = (req, res, next) ->
 					return next new HttpError 403, "Недостаточно прав"
 				else
 					return next new HttpError 403, "У вас пролеммы с аккаунтом обратитесь к администратору"
-				
 	else
 		return next new HttpError 401, "Вы не авторизированы"

@@ -1,5 +1,4 @@
 mongoose = require "../libs/mongoose"
-async = require "async"
 util = require "util"
 HttpError = require("../error").HttpError
 

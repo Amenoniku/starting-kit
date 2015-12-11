@@ -4,6 +4,7 @@ gutil = require "gulp-util"
 uglify = require "gulp-uglify"
 browserify = require "browserify"
 watchify = require "watchify"
+polyify = require "polyify"
 source = require "vinyl-source-stream"
 bundleLogger = require "../utils/bundleLogger"
 handleErrors = require "../utils/handleErrors"
@@ -11,9 +12,10 @@ paths = require "../paths"
 
 # External dependencies we do not want to rebundle while developing
 dependencies =
-	jquery: "./node_modules/jquery"
 	react: "./node_modules/react"
 	reactDOM: "./node_modules/react-dom"
+	fetch: "./node_modules/whatwg-fetch"
+	promise: "./node_modules/es6-promise"
 
 gulp.task "scripts", ->
 	#==========  Client bundler  ==========#
@@ -29,13 +31,14 @@ gulp.task "scripts", ->
 	rebundle = ->
 		bundleLogger.start "client.js"
 
-		clientBundler.bundle()
-			.on "error", handleErrors
-			.pipe source "app.min.js"
-			# .pipe gulpif !gutil.env.debug, do uglify
-			.pipe gulp.dest paths.scripts
-			.on "end", ->
-				bundleLogger.end "client.js"
+		clientBundler
+			.bundle()
+				.on "error", handleErrors
+				.pipe source "app.min.js"
+				# .pipe gulpif !gutil.env.debug, do uglify
+				.pipe gulp.dest paths.scripts
+				.on "end", ->
+					bundleLogger.end "client.js"
 
 	if global.watch
 		clientBundler = watchify clientBundler
