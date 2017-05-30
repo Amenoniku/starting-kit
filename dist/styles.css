@@ -1,0 +1,16 @@
+/* for test */
+
+.test {
+	display: inline-block;
+	margin: 40px;
+	padding: 20px;
+	background: #B1C6C5;
+	border: 3px dotted #979797;
+	border-radius: 20px;
+}
+
+.test p {
+	vertical-align: middle;
+}
+
+/* for test */

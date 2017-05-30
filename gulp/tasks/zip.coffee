@@ -1,6 +1,4 @@
 gulp = require "gulp"
-gutil = require "gulp-util"
-gulpif = require "gulp-if"
 zip = require "gulp-zip"
 paths = require "../paths"
 pkg = require "../../package.json"

@@ -1,6 +1,0 @@
-mixin greeting()
-	if user
-		.greeting
-			p.user Привет #{user.username}
-			form(id="logout", method="POST", action="/auth/logout")
-				button.btn(type="submit", name="logout") Выйти

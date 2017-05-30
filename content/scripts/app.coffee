@@ -1,1 +1,0 @@
-require "../views/auth/auth"

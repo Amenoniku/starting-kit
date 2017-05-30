@@ -10,4 +10,4 @@ module.exports =
 	end: (filepath) ->
 		taskTime = process.hrtime startTime
 		prettyTime = prettyHrtime taskTime
-		gutil.log "Bundled", gutil.colors.green filepath, "in", gutil.colors.magenta prettyTime
+		gutil.log "Bundled", gutil.colors.green filepath, "in", gutil.colors.cyan prettyTime
